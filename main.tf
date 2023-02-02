@@ -54,7 +54,7 @@ resource "azurerm_storage_account" "storeacc" {
 }
 
 module "private_endpoint" {
-  source = "git::https://github.com/OmerBrumer/module-private-endpoint.git"
+  source = "git::https://github.com/OmerBrumer/module-private-endpoint.git?ref=dev"
 
   private_endpoint_name          = "${var.storage_account_name}-private-endpoint"
   resource_group_name            = var.resource_group_name
@@ -65,7 +65,7 @@ module "private_endpoint" {
 }
 
 module "diagnostic_settings" {
-  source = "git::https://github.com/OmerBrumer/module-diagnostic-setting.git"
+  source = "git::https://github.com/OmerBrumer/module-diagnostic-setting.git?ref=dev"
 
   diagonstic_setting_name    = "${azurerm_storage_account.storeacc.name}-diagnostic-setting"
   log_analytics_workspace_id = var.log_analytics_workspace_id
